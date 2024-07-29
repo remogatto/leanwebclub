@@ -1,19 +1,13 @@
-let passwordFields = document.querySelectorAll('input[type="password"]');
-let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 let state = {true: "text", false: "password" };
 
 window.addEventListener('click', function (event) {
-    if (event.target.matches('#show-password')) {
+    if (event.target.matches('input[type="checkbox"]')) {
+	let checkbox = event.target;
+	let passwordFields = checkbox.form.querySelectorAll('.password');
+	
 	for (let field of passwordFields) {
-	    field.type=state[event.target.checked];
+	    field.type=state[checkbox.checked];
 	}
     }
-    else {
-	console.log("Show passwords toggle");
-	for (let field of passwordFields) {
-	    field.type=state[event.target.checked];	    
-	}
-    }
-
 });
 
