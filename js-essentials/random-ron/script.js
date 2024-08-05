@@ -1,8 +1,6 @@
 let blockquote = document.querySelector('blockquote');
 let button = document.querySelector('button#get-quote');
 
-getQuote();
-
 function getQuote () {
     blockquote.textContent = 'Getting a fresh quote...';
     
@@ -23,6 +21,8 @@ function getQuote () {
 button.addEventListener('click', function (event) {
 	getQuote();
 });
+
+getQuote();
 
 
 
