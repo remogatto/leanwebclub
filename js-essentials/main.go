@@ -15,6 +15,7 @@ func main() {
 	mux.Handle("GET /character-count/", http.StripPrefix("/character-count", http.FileServer(http.Dir("character-count"))))
 	mux.Handle("GET /character-word-count/", http.StripPrefix("/character-word-count", http.FileServer(http.Dir("character-word-count"))))
 	mux.Handle("GET /random-ron/", http.StripPrefix("/random-ron", http.FileServer(http.Dir("random-ron"))))
+	mux.Handle("GET /random-ron-no-dup/", http.StripPrefix("/random-ron-no-dup", http.FileServer(http.Dir("random-ron-no-dup"))))
 
 	log.Println("Start the web server...")
 	err := http.ListenAndServe(":8080", mux)
