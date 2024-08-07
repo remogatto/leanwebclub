@@ -1,4 +1,5 @@
 const MAX_QUOTES = 50;
+const endpoint = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
 
 let blockquote = document.querySelector('blockquote');
 let button = document.querySelector('button#get-quote');
@@ -7,7 +8,7 @@ let lastQuotes = [];
 function getQuote () {
     blockquote.textContent = `Getting a fresh quote avoiding duplicates...`;
     
-    fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes').then(function (response) {
+    fetch(endpoint).then(function (response) {
 	if (response.ok) {
 	    return response.json();
 	}
