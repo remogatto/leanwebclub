@@ -1,9 +1,9 @@
 let app = document.querySelector('#app');
 
-let endpoints = {
-    articles: 'https://vanillajsacademy.com/api/dragons.json',
-    authors: 'https://vanillajsacademy.com/api/dragons-authors.json'
-}
+let endpoints = [
+    'https://vanillajsacademy.com/api/dragons.json',
+    'https://vanillajsacademy.com/api/dragons-authors.json'
+];
 
 let articleTmpl = function (item, authors) {
     return `
@@ -12,7 +12,7 @@ let articleTmpl = function (item, authors) {
   <em>${item.pubdate}</em>
   <details>
   <summary>by ${item.author}</summary>
-  <p>${function () { return authors.find(function (author) { return author.author === item.author} )}().bio}</p>
+  <p>${authors.find(function (author) { return author.author === item.author} ).bio}</p>
   </details>
   <p>${item.article}</p>
 </article>
@@ -24,7 +24,7 @@ async function getArticlesAndAuthors() {
     app.innerHTML = 'Fetching all articles and authors...';
 
     try {
-	let responses = await Promise.all([fetch(endpoints.articles), fetch(endpoints.authors)]);
+	let responses = await Promise.all(endpoints.map( function (endpoint) { return fetch(endpoint); } ));
 	let articlesAndAuthors = await Promise.all(responses.map(async function (response) {
 	    if (!response.ok) throw response.status;
 	    
