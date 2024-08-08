@@ -1,8 +1,19 @@
 let app = document.querySelector('#app');
 let endpoint = 'https://vanillajsacademy.com/api/dragons.json';
 
+let articleTmpl = function (item) {
+    return `
+<article>
+  <h2>${item.title}</h2>
+  <cite>${item.pubdate} by <strong>${item.author}</strong></cite>
+  <p>${item.article}</p>
+</article>
+<hr/>
+`
+}
+
 async function getArticles() {
-    app.innerHTML = 'Fetching articles...';
+    app.innerHTML = 'Fetching all articles...';
     
     try {
 	let response = await fetch(endpoint);    
@@ -12,12 +23,7 @@ async function getArticles() {
 	if (!dragons) throw 'no data';
 
 	app.innerHTML = dragons.articles.map(function(item) {
-	    return `
-<h2>${item.title}</h2>
-<cite>${item.pubdate} by <strong>${item.author}</strong></cite>
-<p>${item.article}</p>
-<hr/>
-`
+	    return `${articleTmpl(item)}`;
 	}).join('');
 	
     } catch (error) {
