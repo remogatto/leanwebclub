@@ -1,10 +1,14 @@
-# Random Ron
+# Dragon Trainer Monthly
 
-A site that displays a random Ron Swanson quote (from the show Parks
-and Recreation) using the [Ron Swanson Quotes
-API](https://github.com/jamesseanwright/ron-swanson-quotes).
+Use an API for the fictional Dragon Trainer Monthly magazine, to
+display their stories on a webpage.
+
+The endpoint is a JSON file. You can visit it directly to see the
+response structure.
+
+https://vanillajsacademy.com/api/dragons.json
 
 # Reference
 
-* https://leanwebclub.com/learn/js-essentials/project-random-ron
+* https://leanwebclub.com/learn/js-essentials/project-dragon-trainer-monthly
 
