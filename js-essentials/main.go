@@ -17,6 +17,7 @@ func main() {
 	mux.Handle("GET /random-ron/", http.StripPrefix("/random-ron", http.FileServer(http.Dir("random-ron"))))
 	mux.Handle("GET /random-ron-no-dup/", http.StripPrefix("/random-ron-no-dup", http.FileServer(http.Dir("random-ron-no-dup"))))
 	mux.Handle("GET /random-ron-async-await/", http.StripPrefix("/random-ron-async-await", http.FileServer(http.Dir("random-ron-async-await"))))
+	mux.Handle("GET /dragon-trainer-monthly/", http.StripPrefix("/dragon-trainer-monthly", http.FileServer(http.Dir("dragon-trainer-monthly"))))
 
 	log.Println("Start the web server...")
 	err := http.ListenAndServe(":8080", mux)
