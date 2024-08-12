@@ -35,9 +35,9 @@ async function getArticlesAndAuthors() {
 	}));
 
 	let authors = articlesAndAuthors[1].authors;	
-	app.innerHTML = articlesAndAuthors[0].articles.map(function(item) {
+	app.innerHTML = cleanHTML(articlesAndAuthors[0].articles.map(function(item) {
 	    return `${articleTmpl(item, authors)}`;
-	}).join('');
+	}).join(''));
 	
     } catch (error) {
 	console.warn(error);
