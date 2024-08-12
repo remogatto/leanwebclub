@@ -23,6 +23,7 @@ func main() {
 	mux.Handle("GET /monster-shuffle/", http.StripPrefix("/monster-shuffle", http.FileServer(http.Dir("monster-shuffle"))))
 	mux.Handle("GET /monster-game/", http.StripPrefix("/monster-game", http.FileServer(http.Dir("monster-game"))))
 	mux.Handle("GET /monster-game-score/", http.StripPrefix("/monster-game-score", http.FileServer(http.Dir("monster-game-score"))))
+	mux.Handle("GET /form-autosave/", http.StripPrefix("/form-autosave", http.FileServer(http.Dir("form-autosave"))))
 
 	log.Println("Start the web server...")
 	err := http.ListenAndServe(":8080", mux)
