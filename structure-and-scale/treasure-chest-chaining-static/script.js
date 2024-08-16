@@ -51,7 +51,7 @@ let TreasureChest = (function () {
     Constructor.getRandomLoot = function () {
 	let amount = [];
 	
-	for (let qty = 0; qty <= 50; qty++) {
+	for (let qty = 0; qty < 50; qty++) {
 	    amount.push(qty+1);
 	}
 
